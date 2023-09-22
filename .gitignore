@@ -1,0 +1,8 @@
+# Ignore txt files
+*.txt
+
+# Ignore build directories
+/build/
+
+# Ignore a specific file
+commit&push.txt
