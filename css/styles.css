@@ -1,0 +1,78 @@
+:root {
+    --color-1: #0D0221;
+    --color-2: #0F084B;
+    --color-3: #26408B;
+    --color-4: #A6CFD5;
+    --color-5: #C2E7D9;
+    --color-6: #F1EFEF;
+  }
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+}
+
+/* SECTION */
+
+.sections {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-3);
+    color: var(--color-6);
+}
+
+.sections:nth-child(odd) {
+    background-color: var(--color-5);
+    color: var(--color-1);
+}
+
+
+#fixed-image {
+    width: 40%;
+    height: 100vh;
+    position: fixed; /* Fixed position to stay in place */
+    top: 0; /* Stick to the top of the viewport */
+    left: 10%; /* Adjust left position */
+    z-index: 0; /* Behind other content */
+}
+
+.sections {
+    min-height: 100vh;
+    position: relative; /* Ensure proper stacking context for z-index */
+}
+
+.sections .home-left {
+    margin-left: 10%;
+    width: 30%;
+    position: relative; /* To make it a positioning context */
+}
+
+.sections .home-right {
+    width: 60%;
+    margin-left: 17.1%;
+}
+
+.sections .home-right p{
+    margin: 0;
+}
+
+#home-txt-1 {
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--color-3);
+}
+
+#home-txt-2 {
+    font-size: 7.5rem;
+    font-weight: 600;
+    color: var(--color-1);
+    line-height: 1;
+}
+.text {
+    display: inline-block;
+}
