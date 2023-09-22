@@ -18,7 +18,7 @@
         <img src="./images/my-image.2jpg.png" alt="My Image" id="fixed-image">
     </div>
     <div class="home-right">
-        <p class="text" id="home-txt-1">Greetings, I'm </p>
+        <p class="text" id="home-txt-1">Hi, I'm </p>
         <p class="text" id="home-txt-2">Neal Mancilla!</p>
     </div>
 </div>
