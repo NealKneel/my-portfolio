@@ -8,9 +8,9 @@
         <div class="button-container">
             <div class="nav-logo"><img src="./images/favicon.png" id="logo"></div>
             <a href="#home-section" class="nav-buttons active">Home</a>
-            <a href="#profile-section" class="nav-buttons">Profile</a>
+            <a href="#about-me-section" class="nav-buttons">About Me</a>
             <a href="#messages-section" class="nav-buttons">Messages</a>
-            <a href="#settings-section" class="nav-buttons">Settings</a>
+            <a href="#contact-section" class="nav-buttons">Contact</a>
         </div>
         <ul class="social-icons">
             <li>
