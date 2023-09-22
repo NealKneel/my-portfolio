@@ -1,4 +1,0 @@
-git status // check if up to date
-git add . // to stage changes
-git commit -m "your_message_here" // commit with message
-git push origin main // push
