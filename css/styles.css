@@ -12,7 +12,6 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    overflow: auto;
 }
 
 /* SECTION */
@@ -27,7 +26,6 @@ section {
     position: relative;
     margin-left: 10%;
     max-width: 90%;
-    overflow-x: hidden;
 
 }
 
@@ -38,7 +36,7 @@ section:nth-child(odd) {
 
 
 #fixed-image {
-    width: 40%;
+    object-fit: cover;
     height: 100vh;
     position: fixed; /* Fixed position to stay in place */
     top: 0; /* Stick to the top of the viewport */
@@ -49,7 +47,7 @@ section:nth-child(odd) {
 .home-right {
     position: absolute;
     width: 45.5%;
-    margin-left: 39%;
+    margin-left: 20%;
 
 }
 
@@ -73,7 +71,7 @@ section:nth-child(odd) {
     animation-delay: 1.5s;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid;
+    border-right: 5px solid;
     font-family: monospace;
     font-size: 7.5rem;
     font-weight: 400;
@@ -122,7 +120,7 @@ section:nth-child(odd) {
 }
 
 .about-me-txt b{
-    color: var(--color-1);
+    font-size: 1.3rem;
 }
 
 .about-me-img {
@@ -140,13 +138,18 @@ section:nth-child(odd) {
     object-fit: cover; /* Maintain aspect ratio while covering */
 }
 
-.openModalBtn {
+#openModalBtn {
     font-family: 'Poppins', sans-serif;
     font-size: large;
     color: var(--color-6);
     background-color: transparent;
+    text-decoration: underline;
     border: none;
     cursor: pointer;
+}
+#openModalBtn:hover {
+    font-size: 1.2rem;
+    color: red;
 }
 
 /* Styles for the modal */
@@ -154,15 +157,46 @@ section:nth-child(odd) {
     display: none;
     position: fixed;
     z-index: 1000;
-    left: 50%;
-    top: 50%;
+    left: 55%;
+    top: 52%;
+    height: 90vh;
+    width: 70rem;
     transform: translate(-50%, -50%);
     background-color: white;
+    color: #0D0221;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    padding: 20px;
+    margin-top: 1rem;
+    padding: 1rem;
+    overflow-y: auto;
+    height: 83vh;
+}
+
+/* Customize the scrollbar for webkit-based browsers */
+.modal-content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Customize the scrollbar for webkit-based browsers */
+body::-webkit-scrollbar {
+    width: .5rem;
+}
+
+/* Track (the background) */
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle (the draggable part) */
+body::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 /* Styles for the overlay */
@@ -180,10 +214,50 @@ section:nth-child(odd) {
 /* Styles for the close button */
 .close {
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: -1.05rem;
+    right: -0.6rem;
     font-size: 30px;
     cursor: pointer;
 }
 
+.resume-download {
+    position: absolute;
+    top: 0.95rem;
+    left: -3rem;
+    cursor: pointer;
+}
 /* Additional styles can be added as needed */
+
+table, th, td, tr {
+    border-collapse: collapse;
+    padding: .8rem;
+    text-align: left;
+}
+
+.resume ul, .resume li{
+    margin: 0;
+}
+.resume-pic-container {
+    width: 15rem; /* Adjust the width as needed */
+    height: 15rem; /* Adjust the height as needed */
+    padding: 0;
+    overflow: hidden;
+}
+
+#resume-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* You can use "cover", "contain", "fill", etc. depending on your needs */
+}
+
+.project-description {
+    text-align: justify;
+}
+
+h1, h3 {
+    margin: 0;
+}
+
+.main-line {
+    padding: 0;
+}

@@ -10,12 +10,18 @@ const closeModalBtn = document.getElementById('closeModalBtn');
 openModalBtn.addEventListener('click', () => {
     modal.style.display = 'block';
     overlay.style.display = 'block';
+
+    // Apply overflow: hidden to the body
+    document.body.style.overflow = 'hidden';
 });
 
 // Function to close the modal
 closeModalBtn.addEventListener('click', () => {
     modal.style.display = 'none';
     overlay.style.display = 'none';
+
+    // Remove overflow: hidden from the body
+    document.body.style.overflow = 'auto';
 });
 
 // Function to close the modal when clicking outside of it
