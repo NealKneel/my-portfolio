@@ -8,7 +8,7 @@
         <div class="nav-logo"><img src="./images/favicon.png" id="logo"></div>
         <a href="#home-section" class="nav-buttons active">Home</a>
         <a href="#about-me-section" class="nav-buttons">About Me</a>
-        <a href="#messages-section" class="nav-buttons">Messages</a>
+        <a href="#projects-section" class="nav-buttons">Projects</a>
         <a href="#contact-section" class="nav-buttons">Contact</a>
     </div>
     <div class="icon-container">

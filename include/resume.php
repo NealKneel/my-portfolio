@@ -183,7 +183,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td class="skill-list">
                     <h3>Programming</h3>
                     <ul>
                         <li>HTML (Intermediate)</li>
@@ -196,7 +196,7 @@
                         <li>Java (Basic)</li>
                     </ul>
                 </td>
-                <td>
+                <td class="skill-list">
                     <h3>Soft Skills</h3>
                     <ul>
                         <li>Communication</li>
@@ -207,7 +207,7 @@
                         <li>Openness to criticism</li>
                     </ul>
                 </td>
-                <td>
+                <td class="skill-list">
                     <h3>Media Editing</h3>
                     <ul>
                         <li>Adobe Premiere (Intermediate)</li>
@@ -217,7 +217,7 @@
                         <li>Figma (Intermediate)</li>
                     </ul>
                 </td>
-                <td>
+                <td class="skill-list">
                     <h3>Others</h3>
                     <ul>
                         <li>MS Office Applications (Novice)</li>

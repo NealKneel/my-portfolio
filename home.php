@@ -55,8 +55,8 @@
                 <div id="overlay" class="overlay"></div>
             </div>
         </section>
-        <section id="messages-section">
-            <p>MESSAGES</p>
+        <section id="projects-section">
+            <p>PROJECTS</p>
         </section>
         <section id="contact-section">
             <p>CONTACT</p>
