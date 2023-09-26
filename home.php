@@ -39,24 +39,42 @@
                 <br>
                 <span>Feel free to view my<button id="openModalBtn">RESUME</button></span>
                 <div id="myModal" class="modal">
+
                     <div class="close" id="closeModalBtn">
                         <i class="fa-solid fa-circle-xmark fa-s" style="color: #0d0221;"></i>
                     </div>
-                    <div class="resume-download">                        
-                        <a href="./files/MANCILLA_NAM.pdf" download="MANCILLA_NAM.pdf"><i class="fa-solid fa-file-arrow-down fa-2xl"  style="color: var(--color-6)"></i></a>
+
+                    <button class="download-button" id="dl-btn">
+                        <i class="fa-solid fa-download fa-2xl"></i>
+                    </button>
+
+                    <div class="extra-options">
+                        <a href="./files/MANCILLA_NAM.pdf" class="option-button" id="option1" download="MANCILLA_NAM.pdf">
+                            <i class="fa-solid fa-file-arrow-down" style="color: var(--color-6);"></i>
+                            <span class="button-text">W/ image</span>
+                        </a>
+                        <a href="./files/MANCILLA-NAM.pdf" class="option-button" id="option2" download="MANCILLA_NAM.pdf">
+                        <i class="fa-solid fa-file-image" style="color: var(--color-6)"></i>
+                            <span class="button-text">W/o image</span>
+                        </a>
                     </div>
+
+
                     <div class="modal-content">
                         <?php
                         include "./include/resume.php"
                         ?>
                     </div>
                 </div>
-        
                 <div id="overlay" class="overlay"></div>
             </div>
         </section>
+        
         <section id="projects-section">
-            <p>PROJECTS</p>
+            <div>
+                <h2>CAPSTONE</h2>
+                <a href="https://drive.google.com/drive/folders/1XXIXionc4_Kj83u3QUyZA6Euo-obAmXb">LINK TO CAPSTONE</a>
+            </div>
         </section>
         <section id="contact-section">
             <p>CONTACT</p>

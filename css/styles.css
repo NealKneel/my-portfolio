@@ -154,7 +154,7 @@ section:nth-child(odd) {
 
 /* Styles for the modal */
 .modal {
-    display: none;
+    /* display: none; */
     position: fixed;
     z-index: 1000;
     left: 55%;
@@ -220,13 +220,87 @@ body::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
 }
 
-.resume-download {
+.download-button {
     position: absolute;
-    top: 0.95rem;
-    left: -3rem;
+    text-align: center;
     cursor: pointer;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding: 0;
+    background-color: var(--color-5);
+    box-shadow: 0 .8rem 1rem 0 rgba(0, 0, 0, 0.1), 0 1rem 1.2rem 0 rgba(0, 0, 0, 0.1);
+    left: -5rem;
+    border-radius: 50%;
+    border: none;
+    transition: transform 0.1s ease-in-out;
+    z-index: 1;
 }
-/* Additional styles can be added as needed */
+
+.download-button:hover {
+    transform: scale(1.1);
+}
+
+.download-button:active {
+    transform: scale(0.9); /* Shrink the button when clicked */
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+  
+/* Initial state for extra options */
+.extra-options {
+    position: absolute;
+    left: -8rem;}
+
+.option-button {
+    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    z-index: 0;
+}
+
+#option1 {
+    position: absolute;
+    top: 0.6rem;
+    left: 3.8rem;
+    width:fit-content;
+    height: 2.5rem;
+    transform: scale(0.1);
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+#option2 {
+    position: absolute;
+    bottom: -3rem;
+    left: 3.8rem;
+    width:fit-content;
+    height: 2.5rem;
+    transform: scale(0.1);
+    transition: transform 0.3s ease-in-out, bottom 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+/* Initially hide the text */
+.option-button .button-text {
+    display: none;
+}
+
+/* Style for the text description */
+.option-button:hover .button-text {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.7); /* Background color for the text */
+    color: white; /* Text color */
+    padding: 0.2rem 0.5rem; /* Padding around the text */
+    position: absolute;
+    right: 1rem;
+    transform: translateX(-50%); /* Center the text horizontally */
+    border-radius: 0.2rem;
+    font-size: 0.8rem; /* Adjust the font size as needed */
+}
+
+/* Animation for the download button */
+.download-button.clicked {
+    transform: scale(0.9);
+    transition: transform 0.1s ease-in-out;
+}
 
 table, th, td, tr {
     border-collapse: collapse;
