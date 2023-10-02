@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="./css/resume.css">
+
 <table class="resume">
     <colgroup>
     <col style="width: 30%;"> <!-- Set the width of the first column -->

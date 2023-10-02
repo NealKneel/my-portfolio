@@ -1,3 +1,7 @@
+const intro = document.getElementById('home-txt-3');
+
+
+
 ////////////////////RESUME-MODAL////////////////////////////
 
 // Get the modal and overlay elements
@@ -10,7 +14,7 @@ const closeModalBtn = document.getElementById('closeModalBtn');
 
 // Function to open the modal
 openModalBtn.addEventListener('click', () => {
-    modal.style.display = 'block';
+    modal.classList.add('active');
     overlay.style.display = 'block';
 
     // Apply overflow: hidden to the body
@@ -19,7 +23,7 @@ openModalBtn.addEventListener('click', () => {
 
 // Function to close the modal
 closeModalBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modal.classList.remove('active');
     overlay.style.display = 'none';
 
     // Remove overflow: hidden from the body
@@ -28,7 +32,7 @@ closeModalBtn.addEventListener('click', () => {
 
 // Function to close the modal when clicking outside of it
 overlay.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modal.classList.remove('active');
     overlay.style.display = 'none';
 });
 
@@ -72,3 +76,20 @@ dlBtn.addEventListener('click', function() {
         optionsVisible = true;
     }
 });
+
+/////////////////////SCROLL-ANIMATION//////////////////////////
+// https://www.youtube.com/watch?v=T33NN_pPeNI
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+    console.log(entry)
+    if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+    }else{
+        entry.target.classList.remove('show');
+    }
+    })
+})
+
+const hiddenElements = document.querySelectorAll('.slide');
+hiddenElements.forEach((el) => observer.observe(el));

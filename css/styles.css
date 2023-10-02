@@ -67,7 +67,7 @@ section:nth-child(odd) {
 
 #home-txt-2 {
     width: 12ch;
-    animation: typing 1.5s steps(12), blink 0.5s step-end infinite alternate, fadeIn 0.5s forwards; /* Use "forwards" to keep the final state */
+    animation: typing 1.5s steps(12), blink .5s step-end infinite alternate, fadeIn 0.5s forwards; /* Use "forwards" to keep the final state */
     animation-delay: 1.5s;
     white-space: nowrap;
     overflow: hidden;
@@ -80,6 +80,15 @@ section:nth-child(odd) {
     visibility: hidden;
     opacity: 0;
     margin: 0;
+}
+
+#home-txt-3 {
+    width: 120%;
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--color-1);
+    line-height: 1;
 }
 
 @keyframes typing {
@@ -109,6 +118,13 @@ section:nth-child(odd) {
 #about-me-section {
     justify-content: space-evenly;
 }
+
+.about-me-title {
+    position: relative;
+    top: -1rem;
+    font-size: 5rem;
+}
+
 .about-me-txt {
     max-width: 50%;
     text-align: justify;
@@ -123,7 +139,7 @@ section:nth-child(odd) {
     font-size: 1.3rem;
 }
 
-.about-me-img {
+#about-me-img {
     width: 19rem;
     height: 25rem;
     background-color: var(--color-6);
@@ -133,12 +149,33 @@ section:nth-child(odd) {
     overflow: hidden; /* Hide overflowing content */
 }
 
-.about-me-img img {
+#about-me-img img {
     width: 19rem;
     object-fit: cover; /* Maintain aspect ratio while covering */
 }
 
+.slide {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all .5s;
+}
+.slide.right {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(100%);
+    transition: all .5s;
+    transition-delay: 3s;
+}
+.slide.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
 #openModalBtn {
+    position: absolute;
+    padding: 0;
     font-family: 'Poppins', sans-serif;
     font-size: large;
     color: var(--color-6);
@@ -157,14 +194,18 @@ section:nth-child(odd) {
     /* display: none; */
     position: fixed;
     z-index: 1000;
-    left: 55%;
-    top: 52%;
+    left: 21%;
+    top: -91%;
     height: 90vh;
     width: 70rem;
-    transform: translate(-50%, -50%);
     background-color: white;
     color: #0D0221;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    transition: top 1s ease; /* Add a transition for smooth animation */
+}
+
+.modal.active {
+    top: 5%;
 }
 
 .modal-content {
@@ -175,30 +216,9 @@ section:nth-child(odd) {
 }
 
 /* Customize the scrollbar for webkit-based browsers */
-.modal-content::-webkit-scrollbar {
+.modal-content::-webkit-scrollbar, body::-webkit-scrollbar   {
     display: none;
 }
-
-/* Customize the scrollbar for webkit-based browsers */
-body::-webkit-scrollbar {
-    width: .5rem;
-}
-
-/* Track (the background) */
-body::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-/* Handle (the draggable part) */
-body::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-/* Handle on hover */
-body::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
 /* Styles for the overlay */
 .overlay {
     display: none;
@@ -214,10 +234,18 @@ body::-webkit-scrollbar-thumb:hover {
 /* Styles for the close button */
 .close {
     position: absolute;
-    top: -1.05rem;
-    right: -0.6rem;
+    top: -0.9rem;
+    right: -0.4rem;
     font-size: 30px;
     cursor: pointer;
+}
+
+.close:hover {
+    transform: scale(1.1);
+}
+
+.close .fa-solid:hover {
+    color: var(--color-4);
 }
 
 .download-button {
@@ -278,6 +306,10 @@ body::-webkit-scrollbar-thumb:hover {
     transition: transform 0.3s ease-in-out, bottom 0.3s ease-in-out, left 0.3s ease-in-out;
 }
 
+.extra-options .fa-solid:hover {
+    transform: scale(1.2);
+}
+
 /* Initially hide the text */
 .option-button .button-text {
     display: none;
@@ -302,41 +334,134 @@ body::-webkit-scrollbar-thumb:hover {
     transition: transform 0.1s ease-in-out;
 }
 
-table, th, td, tr {
-    border-collapse: collapse;
-    padding: .8rem;
-    text-align: left;
+/*https://www.youtube.com/watch?v=YMK8lCu59LU*/
+
+#projects-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
 }
 
-.resume ul, .resume li{
-    margin: 0;
-}
-.resume-pic-container {
-    width: 15rem; /* Adjust the width as needed */
-    height: 15rem; /* Adjust the height as needed */
-    padding: 0;
-    overflow: hidden;
+.wrapper, .single-card {
+    height: 35rem;
+    width: 25rem;
+    margin: auto;
+    position: relative;
 }
 
-#resume-pic {
-    width: 100%;
+.wrapper {
+    perspective: 56.25rem;
+}
+
+.single-card {
+    text-align: center;
+    transition: all 1.5s cubic-bezier(0.7, -.5, 0.3, 1.8);
+    transform-style: preserve-3d;
+}
+
+.wrapper:hover .single-card{
+    transform: rotateY(180deg);
+}
+
+.front-card, .back-card {
+    position: relative;
+    border-radius: 5%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.front-content .back-content {
     height: 100%;
-    object-fit: cover; /* You can use "cover", "contain", "fill", etc. depending on your needs */
 }
 
-.project-description {
+.front-content {
+    padding: 5rem 1rem 1rem 1rem;
+    overflow: hidden;
+    color: var(--color-6);
+}
+
+.front-card {
+    cursor: pointer;
+    height: 100%;
+    backface-visibility: hidden;
+    background-position: center center;
+}
+
+.front-card .front-content .front-img {
+    object-fit: cover;
+    max-width: 15rem;
+}
+
+.back-card {
+    transform: rotateY(180deg);
+    position: absolute;
+    height: 100%;
+}
+
+.back-card .back-content {
+    padding: 2rem;
+}
+
+.back-card .back-content p {
     text-align: justify;
+    color: var(--color-6);
 }
 
-h1, h3 {
-    margin: 0;
+
+.back-card .back-content .card-button a {
+    text-decoration: none;
+    color: var(--color-6);
 }
 
-.main-line {
-    padding: 0;
-    border-bottom: .3rem solid;
+.back-card .back-content .card-button {
+    position: absolute;
+    width: 18.5rem;
+    padding: 10px 20px;
+    bottom: 1rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+ .back-card .back-content .card-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.2);
+ }
+
+.back-card .back-content .header {
+    overflow: hidden;
+    justify-content: center;
+    height: 5.7rem;
+    width: 20.99rem;
 }
 
-.skill-list {
-    vertical-align: top;
+.back-card .back-content .body {
+    overflow: hidden;
+    justify-content: center;
+    height: 22rem;
+    width: 20.99rem;
+}
+
+.back-card .back-content img {
+    width: 100%;
+}
+
+.proj1 {
+    background-color: #537C84;
+    border-radius: 5%;
+}
+
+.proj2 {
+    background-color: #cf102d;
+    border-radius: 5%;
+}
+
+.proj1 .card-button {
+    background-color: #3bada8;
+}
+
+.proj2 .card-button {
+    background-color: #979797;
 }
