@@ -51,70 +51,21 @@ section:nth-child(odd) {
 
 }
 
-/*https://codepen.io/denic/pen/GRoOxbM*/
-#home-txt-1 {
+.typed-strings p, span, h2{
+    font-size: 5rem;
+    font-weight: bolder;
+    line-height: 1;
+    color: var(--color-1);
+    margin: 0;
+}
+
+.typed-strings p {
     width: 7ch;
-    animation: typing 1s steps(7), blink 0.5s step-end infinite alternate , resetBorder 0.01s 1s forwards;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid;
-    font-family: monospace;
     font-size: 3rem;
     font-weight: 400;
-    color: var(--color-1);
-    margin: 0;
-}
-
-#home-txt-2 {
-    width: 12ch;
-    animation: typing 1.5s steps(12), blink .5s step-end infinite alternate, fadeIn 0.5s forwards; /* Use "forwards" to keep the final state */
-    animation-delay: 1.5s;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 5px solid;
-    font-family: monospace;
-    font-size: 7.5rem;
-    font-weight: 400;
-    color: var(--color-1);
-    line-height: 1;
-    visibility: hidden;
-    opacity: 0;
-    margin: 0;
-}
-
-#home-txt-3 {
-    width: 120%;
-    margin: 0;
-    font-size: 3rem;
-    font-weight: 400;
-    color: var(--color-1);
     line-height: 1;
 }
 
-@keyframes typing {
-    from {
-        width: 0;
-    }
-}
-
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-}
-
-@keyframes fadeIn {
-    to {
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-@keyframes resetBorder {
-    to {
-        border-right: none;
-    }
-}
 #about-me-section {
     justify-content: space-evenly;
 }
@@ -160,14 +111,36 @@ section:nth-child(odd) {
     transform: translateX(-100%);
     transition: all .5s;
 }
-.slide.right {
+.slide-right {
     opacity: 0;
     filter: blur(5px);
     transform: translateX(100%);
     transition: all .5s;
-    transition-delay: 3s;
 }
+
+.slide:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.slide:nth-child(3) {
+    transition-delay: 250ms;
+}
+
+.slide:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.slide:nth-child(5) {
+    transition-delay: 350ms;
+}
+
 .slide.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.slide-right.show {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
@@ -191,7 +164,7 @@ section:nth-child(odd) {
 
 /* Styles for the modal */
 .modal {
-    /* display: none; */
+    opacity: 0;
     position: fixed;
     z-index: 1000;
     left: 21%;
@@ -201,10 +174,11 @@ section:nth-child(odd) {
     background-color: white;
     color: #0D0221;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    transition: top 1s ease; /* Add a transition for smooth animation */
+    transition: top 1s ease, opacity 0.5s ease;
 }
 
 .modal.active {
+    opacity: 1;
     top: 5%;
 }
 
@@ -377,12 +351,6 @@ section:nth-child(odd) {
     height: 100%;
 }
 
-.front-content {
-    padding: 5rem 1rem 1rem 1rem;
-    overflow: hidden;
-    color: var(--color-6);
-}
-
 .front-card {
     cursor: pointer;
     height: 100%;
@@ -390,9 +358,9 @@ section:nth-child(odd) {
     background-position: center center;
 }
 
-.front-card .front-content .front-img {
-    object-fit: cover;
-    max-width: 15rem;
+.front-content {
+    padding: 6rem 1rem 1rem 1rem;
+    overflow: hidden;
 }
 
 .back-card {
@@ -454,8 +422,22 @@ section:nth-child(odd) {
 }
 
 .proj2 {
-    background-color: #cf102d;
+    background-color: #FFFFFF;
     border-radius: 5%;
+}
+
+.proj2 .body p {
+    color: var(--color-1);
+}
+
+.proj1 .front-content img {
+    object-fit: cover;
+    max-width: 15rem;
+}
+
+.proj2 .front-content img{
+    object-fit: cover;
+    max-width: 20rem;
 }
 
 .proj1 .card-button {
@@ -463,5 +445,5 @@ section:nth-child(odd) {
 }
 
 .proj2 .card-button {
-    background-color: #979797;
+    background-color: #cf102d;
 }

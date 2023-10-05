@@ -1,7 +1,3 @@
-const intro = document.getElementById('home-txt-3');
-
-
-
 ////////////////////RESUME-MODAL////////////////////////////
 
 // Get the modal and overlay elements
@@ -93,3 +89,12 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.slide');
 hiddenElements.forEach((el) => observer.observe(el));
+
+
+//////////////////////////TYPED.JS///////////////////////////////
+var typed = new Typed(".auto-type", {
+    strings: ["Neal Andrus!", "an aspiring Web Developer"],
+    typeSpeed: 100,
+    backSpeed: 50,
+    loop: false
+})
