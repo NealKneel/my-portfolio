@@ -51,15 +51,22 @@ section:nth-child(odd) {
 
 }
 
-.typed-strings p, span, h2{
+.typed-strings {
+    height: 1rem;
+}
+
+.typed-strings span{
     font-size: 5rem;
     font-weight: bolder;
-    line-height: 1;
+    line-height: 1.1;
     color: var(--color-1);
     margin: 0;
 }
 
 .typed-strings p {
+    position: absolute;
+    top: -3rem;
+    margin: 0;
     width: 7ch;
     font-size: 3rem;
     font-weight: 400;
@@ -105,42 +112,59 @@ section:nth-child(odd) {
     object-fit: cover; /* Maintain aspect ratio while covering */
 }
 
-.slide {
+.left {
     opacity: 0;
     filter: blur(5px);
     transform: translateX(-100%);
     transition: all .5s;
 }
-.slide-right {
+
+.right {
     opacity: 0;
     filter: blur(5px);
     transform: translateX(100%);
     transition: all .5s;
 }
 
-.slide:nth-child(2) {
+.left:nth-child(2) {
     transition-delay: 200ms;
 }
 
-.slide:nth-child(3) {
+.left:nth-child(3) {
     transition-delay: 250ms;
 }
 
-.slide:nth-child(4) {
+.left:nth-child(4) {
     transition-delay: 300ms;
 }
 
-.slide:nth-child(5) {
+.left:nth-child(5) {
     transition-delay: 350ms;
 }
 
-.slide.show {
+.right:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.right:nth-child(3) {
+    transition-delay: 250ms;
+}
+
+.right:nth-child(4) {
+    transition-delay: 300ms;
+}
+
+.right:nth-child(5) {
+    transition-delay: 350ms;
+}
+
+.left.show {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
 }
 
-.slide-right.show {
+.right.show {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
@@ -446,4 +470,82 @@ section:nth-child(odd) {
 
 .proj2 .card-button {
     background-color: #cf102d;
+}
+
+.contact-form {
+    display: none;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+    width: 50%;
+}
+
+.contact-message {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    width: 50%;
+}
+
+.contact-form input, textarea {
+    border: 0.15rem solid #ccc;
+    border-radius: 0.5rem;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    height: 2.5rem;
+}
+
+.contact-form textarea {
+    height: 14.767rem;
+}
+
+.contact-form label {
+    margin: 1rem 0 .5rem 0;
+    font-size: 1.2rem;
+}
+
+.show-form {
+    display: flex;
+    flex-direction: row;
+    transition: all .5s;
+}
+
+.contact-container {
+    background-color: var(--color-2);
+    height: 35rem;
+    width: 50rem;
+    padding: 0 2rem 0 2rem;
+    border-radius: 5%;
+    justify-content: center;
+}
+
+.form-container {
+    height: 23rem;
+    padding: 0 2rem 0 2rem;
+    background-color: var(--color-3);
+    border-radius: 1rem;
+}
+
+.contact-button{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.contact-button button {
+    background-color: var(--color-2);
+    color: var(--color-6);
+    border: none;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    width: 40%;
+    border-radius: 1rem;
+    padding: 0.5rem 0 0.5rem 0;
+}
+
+.contact-button button:hover {
+    background-color: #ccc;
+    color: var(--color-1);
 }

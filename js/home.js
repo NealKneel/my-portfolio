@@ -1,3 +1,19 @@
+(function() {
+    emailjs.init('afh1OpJDSNJocyEWn');
+})();
+
+function SendMail() {
+    var params = {
+        user_name : document.getElementById("user_name").value,
+        user_email : document.getElementById("user_email").value,
+        email_subject : document.getElementById("email_subject").value,
+        email_message : document.getElementById("email_message").value
+    }
+    emailjs.send("service_0pznqny", "template_y0omqpb", params).then(function (res) {
+        alert("Success! " + res.status);
+    })
+}
+
 ////////////////////RESUME-MODAL////////////////////////////
 
 // Get the modal and overlay elements
@@ -73,8 +89,10 @@ dlBtn.addEventListener('click', function() {
     }
 });
 
+
 /////////////////////SCROLL-ANIMATION//////////////////////////
 // https://www.youtube.com/watch?v=T33NN_pPeNI
+
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -87,13 +105,42 @@ const observer = new IntersectionObserver((entries) => {
     })
 })
 
-const hiddenElements = document.querySelectorAll('.slide');
-hiddenElements.forEach((el) => observer.observe(el));
+const slideLeft = document.querySelectorAll('.left');
+const slideRight = document.querySelectorAll('.right');
+
+slideLeft.forEach((el) => observer.observe(el));
+slideRight.forEach((el) => observer.observe(el));
+
+
+
+/////////////////////////CONTACTS-SECTION-ANIMATION///////////////////////////////
+
+
+// Get references to the elements
+const elementToHide = document.querySelector('.icon-container');
+const contactSection = document.getElementById('contact-section');
+
+// Create an Intersection Observer
+const contacntsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            // Add the "hide-class" to the element
+            elementToHide.classList.add('hide-class');
+        } else {
+            // Remove the "hide-class" if it's not in the "contact" section
+            elementToHide.classList.remove('hide-class');
+        }
+    });
+}, { threshold: 0.5 }); // Adjust the threshold value as needed
+
+// Observe the "contact" section
+contacntsObserver.observe(contactSection);
+
 
 
 //////////////////////////TYPED.JS///////////////////////////////
 var typed = new Typed(".auto-type", {
-    strings: ["Neal Andrus!", "an aspiring Web Developer"],
+    strings: ["","Neal Andrus!", "an aspiring Web Developer!"],
     typeSpeed: 100,
     backSpeed: 50,
     loop: false

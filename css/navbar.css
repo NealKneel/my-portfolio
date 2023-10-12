@@ -18,6 +18,11 @@
 
 .icon-container {
     bottom: 50rem;
+    transition: all 1s;
+}
+
+.hide-class {
+    display: none;
 }
 .social-icons {
     list-style: none;
