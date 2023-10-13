@@ -15,7 +15,7 @@
                 <p>#180 Lumil, San Jose, Batangas</p>
             </td>
             <td div class="resume-pic-container">
-                <img src="./images/resume-pic.jpg" alt="Resume Picture" id="resume-pic">
+                <img src="./assets/images/resume-pic.jpg" alt="Resume Picture" id="resume-pic">
             </td>
         </tr>
         <tr class="summary">

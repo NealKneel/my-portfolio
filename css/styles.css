@@ -2,7 +2,7 @@
     --color-1: #0D0221;
     --color-2: #0F084B;
     --color-3: #26408B;
-    --color-4: #A6CFD5;
+    --color-4: #00dfc4;
     --color-5: #C2E7D9;
     --color-6: #F1EFEF;
   }
@@ -126,6 +126,12 @@ section:nth-child(odd) {
     transition: all .5s;
 }
 
+.fade-in {
+    opacity: 0;
+    transition: all .5s;
+    transform: scale(.5);
+}
+
 .left:nth-child(2) {
     transition-delay: 200ms;
 }
@@ -140,6 +146,10 @@ section:nth-child(odd) {
 
 .left:nth-child(5) {
     transition-delay: 350ms;
+}
+
+.left:nth-child(6) {
+    transition-delay: 400ms;
 }
 
 .right:nth-child(2) {
@@ -158,6 +168,10 @@ section:nth-child(odd) {
     transition-delay: 350ms;
 }
 
+.right:nth-child(6) {
+    transition-delay: 400ms;
+}
+
 .left.show {
     opacity: 1;
     filter: blur(0);
@@ -168,6 +182,11 @@ section:nth-child(odd) {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
+}
+
+.fade-in.showFade {
+    transform: scale(1);
+    opacity: 1;
 }
 
 #openModalBtn {
@@ -472,80 +491,121 @@ section:nth-child(odd) {
     background-color: #cf102d;
 }
 
-.contact-form {
-    display: none;
-}
+/* https://www.youtube.com/watch?v=BMphVl9suxA */
 
-.contact-info {
+.form-container {
+    width: 50rem;
     display: flex;
-    flex-direction: column;
-    margin-right: 1rem;
-    width: 50%;
+    justify-content: space-between;
+    background: #1d2b3a;
+    border-radius: 1rem;
 }
 
-.contact-message {
-    display: flex;
-    flex-direction: column;
-    margin-left: 1rem;
-    width: 50%;
+.attribution {
+    opacity: 0;
+    position: absolute;
+    color: #fff;
+    padding: 5px;
+    top: 15rem;
+    left: 9rem;
+    width: 10rem;
+    transform: translateX(0%);
+    transition: .5s all;
 }
 
-.contact-form input, textarea {
-    border: 0.15rem solid #ccc;
-    border-radius: 0.5rem;
-    font-family: 'Poppins';
-    font-size: 1rem;
-    height: 2.5rem;
+.attribution a {
+    color: #00dfc4;
+
+}
+.image-container:hover .attribution {
+    display: block;
+    opacity: 1;
+    transform: translateX(150%);
 }
 
-.contact-form textarea {
-    height: 14.767rem;
-}
-
-.contact-form label {
-    margin: 1rem 0 .5rem 0;
-    font-size: 1.2rem;
-}
-
-.show-form {
-    display: flex;
-    flex-direction: row;
-    transition: all .5s;
+.image-container img {
+    padding-top: 3rem;
+    width: 25rem;
 }
 
 .contact-container {
-    background-color: var(--color-2);
-    height: 35rem;
-    width: 50rem;
-    padding: 0 2rem 0 2rem;
-    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-}
-
-.form-container {
-    height: 23rem;
-    padding: 0 2rem 0 2rem;
-    background-color: var(--color-3);
+    align-items: center;
+    background: #1d2b3a;
     border-radius: 1rem;
+    gap: 1rem;
+    padding: 1rem;
+    height: 30rem;
+    width: 25rem;
+
+}
+.inputBox {
+    position: relative;
+    width: 20rem;
+}
+.inputBox input, textarea {
+    height: 1.5rem;
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #ccc;
+    background: #1d2b3a;
+    border-radius: .5rem;
+    outline: none;
+    color:  var(--color-6);
+    font-size: 1rem;
+    transition: 0.5s;
+}
+.inputBox textarea {
+    height: 10rem;
+}
+.inputBox span {
+    position: absolute;
+    top: 0;        
+    padding: .4rem 0 0 1rem;
+    pointer-events: none;
+    font-size: 1rem;
+    color:  var(--color-6);
+    text-transform: uppercase;
+    transition: .2s;
 }
 
-.contact-button{
-    margin-top: 1rem;
-    text-align: center;
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span,
+.inputBox textarea:valid ~ span,
+.inputBox textarea:focus ~ span {
+    color:  #00dfc4;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.75rem;
+    padding: 0 10px;
+    background: #1d2b3a;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4;
+    letter-spacing: .1rem;
+}
+
+.inputBox input:valid,
+.inputBox input:focus,
+.inputBox textarea:valid,
+.inputBox textarea:focus {
+    border: 1px solid #00dfc4;
 }
 
 .contact-button button {
-    background-color: var(--color-2);
-    color: var(--color-6);
-    border: none;
+    background-color: #ccc;
     font-family: 'Poppins';
-    font-size: 1.2rem;
-    width: 40%;
-    border-radius: 1rem;
-    padding: 0.5rem 0 0.5rem 0;
+    color: var(--color-6);
+    height: 2rem;
+    width: 10rem;
+    border: #ccc;
+    border-radius: .5rem;
+    cursor: pointer;
 }
 
 .contact-button button:hover {
-    background-color: #ccc;
-    color: var(--color-1);
+    background-color: #00dfc4;
+    transform: scale(1.1);
+    transition: all .1s;
+    box-shadow: 0 4px 10px 2px rgba(0, 0, 0, 0.2);
 }

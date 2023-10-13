@@ -1,3 +1,5 @@
+/////////////////////////////EMAIL.JS//////////////////////////
+
 (function() {
     emailjs.init('afh1OpJDSNJocyEWn');
 })();
@@ -5,9 +7,10 @@
 function SendMail() {
     var params = {
         user_name : document.getElementById("user_name").value,
+        user_number : document.getElementById("user_number").value,
         user_email : document.getElementById("user_email").value,
-        email_subject : document.getElementById("email_subject").value,
-        email_message : document.getElementById("email_message").value
+        email_subject : document.getElementById("subject").value,
+        email_message : document.getElementById("message").value
     }
     emailjs.send("service_0pznqny", "template_y0omqpb", params).then(function (res) {
         alert("Success! " + res.status);
@@ -96,21 +99,30 @@ dlBtn.addEventListener('click', function() {
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-    console.log(entry)
-    if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-    }else{
-        entry.target.classList.remove('show');
-    }
-    })
-})
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        
+            if (entry.target.classList.contains('fade-in')) {
+                entry.target.classList.add('showFade');
+            }
+        } else {
+            entry.target.classList.remove('show');
+            
+
+            if (entry.target.classList.contains('fade-in')) {
+                entry.target.classList.remove('showFade');
+            }
+        }
+    });
+});
 
 const slideLeft = document.querySelectorAll('.left');
 const slideRight = document.querySelectorAll('.right');
+const fadeIn = document.querySelectorAll('.fade-in');
 
 slideLeft.forEach((el) => observer.observe(el));
 slideRight.forEach((el) => observer.observe(el));
-
+fadeIn.forEach((el) => observer.observe(el));
 
 
 /////////////////////////CONTACTS-SECTION-ANIMATION///////////////////////////////
@@ -143,5 +155,5 @@ var typed = new Typed(".auto-type", {
     strings: ["","Neal Andrus!", "an aspiring Web Developer!"],
     typeSpeed: 100,
     backSpeed: 50,
-    loop: false
+    loop: true
 })
