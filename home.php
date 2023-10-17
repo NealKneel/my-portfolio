@@ -132,27 +132,27 @@
             <div class="contact-container left">
                 <div class="inputBox left">
                     <input type="text" id="user_name" autocomplete="off" required="required">
-                    <span>Name</span>
+                    <span class="input-span">Name</span>
                 </div>
                 <div class="inputBox left">
                     <input type="tel" id="user_number" required="required">
-                    <span>Contact Number</span>
+                    <span class="input-span">Contact Number</span>
             
                 </div>
                 <div class="inputBox left">
                     <input type="email" id="user_email" autocomplete="off" required="required">
-                    <span>Email</span>
+                    <span class="input-span" id="span_email"></i>Email</span>
                 </div>
                 <div class="inputBox left">
                     <input type="text" id="subject" required="required">
-                    <span>Subject</span>
+                    <span class="input-span">Subject</span>
                 </div>
                 <div class="inputBox left">
                     <textarea id="message" required="required"></textarea>
-                    <span>Message</span>
+                    <span class="input-span">Message</span>
                 </div>
                 <div class="contact-button left">
-                    <button onclick="SendMail()">Send</button>
+                    <button class="send-mail-btn" id="sendMailBtn" onclick="SendMail()">Send</button>
                 </div>
             </div>
             

@@ -157,3 +157,74 @@ var typed = new Typed(".auto-type", {
     backSpeed: 50,
     loop: true
 })
+
+
+    const sendMailBtn = document.getElementById("sendMailBtn");
+    const inputFields = document.querySelectorAll(".inputBox input");
+    const textarea = document.getElementById("message");
+
+    // Function to check if all input fields and the textarea are not empty
+    function checkFields() {
+        for (const inputField of inputFields) {
+            if (inputField.value.trim() === "") {
+                return false;
+            }
+        }
+        return textarea.value.trim() !== "";
+    }
+
+    // Function to enable or disable the button
+    function toggleButtonState() {
+        if (checkFields()) {
+            sendMailBtn.removeAttribute("disabled");
+            sendMailBtn.classList.add("send-mail-btn");
+        } else {
+            sendMailBtn.setAttribute("disabled", true);
+            sendMailBtn.classList.remove("send-mail-btn");
+        }
+    }
+
+    // Add event listeners to input fields and textarea for real-time validation
+    inputFields.forEach((inputField) => {
+        inputField.addEventListener("input", toggleButtonState);
+    });
+
+    textarea.addEventListener("input", toggleButtonState);
+
+    // Initial button state check
+    toggleButtonState();
+
+
+    const emailInput = document.getElementById('user_email');
+    const spanEmail = document.getElementById('span_email');
+    const sendBtn = document.getElementById("sendMailBtn");
+
+
+    emailInput.addEventListener('input', function () {
+        if (this.value === "") {
+            spanEmail.classList.remove('invalidEmail');
+            spanEmail.classList.add('input-span');
+            spanEmail.innerHTML = 'Email';
+        }
+        else if (isValidEmail(this.value)) {
+            spanEmail.classList.add('input-span');
+            spanEmail.classList.remove('invalidEmail');
+            spanEmail.innerHTML = 'Email';
+            sendBtn.removeAttribute("disabled");
+            sendBtn.classList.add("send-mail-btn");
+        } else {
+            spanEmail.classList.remove('input-span');
+            spanEmail.classList.add('invalidEmail');
+            spanEmail.innerHTML = '<i class="fa-solid fa-circle-exclamation" style="color: rgb(192, 38, 38);"></i> Email';
+            sendBtn.setAttribute("disabled", true);
+            sendBtn.classList.remove("send-mail-btn");
+        }
+    });
+    
+    function isValidEmail(email) {
+        // Regular expression to validate email
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+        return emailRegex.test(email);
+    }
+    
+    
